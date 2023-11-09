@@ -10,7 +10,9 @@
 
 // TODO: Check if methods can take parameters, if not remove
 class Game {
+  // TODO: switch width and height to match testing
   constructor(width = 7, height = 6, board = [], currPlayer = 1) {
+    // TODO: Add things that happen every time a new game is made
     this.width = width;
     this.height = height;
     this.board = board;
@@ -32,7 +34,7 @@ class Game {
   makeHtmlBoard() {
     const htmlBoard = document.getElementById("board");
 
-    // TODO: add comment for this code
+    // Creates individual column blocks in the top row
     const top = document.createElement("tr");
     top.setAttribute("id", "column-top");
 
@@ -165,7 +167,9 @@ class Game {
   }
 }
 
-new Game();
+// TODO: match testing call and call from exercise instructions
+const game = new Game(6, 7);
+game.start();
 
 // const WIDTH = 7;
 // const HEIGHT = 6;

@@ -7,23 +7,23 @@
  * board fills (tie)
  */
 
-const WIDTH = 7;
-const HEIGHT = 6;
+// const WIDTH = 7;
+// const HEIGHT = 6;
 
-let currPlayer = 1; // active player: 1 or 2
-const board = []; // array of rows, each row is array of cells  (board[y][x])
+// let currPlayer = 1; // active player: 1 or 2
+// const board = []; // array of rows, each row is array of cells  (board[y][x])
 // (board[5][0] would be the bottom-left spot on the board)
 
 /** makeBoard: fill in global `board`:
  *    board = array of rows, each row is array of cells  (board[y][x])
  */
 
-function makeBoard() {
-  for (let y = 0; y < HEIGHT; y++) {
-    const emptyRow = Array.from({ length: WIDTH }).fill(null);
-    board.push(emptyRow);
-  }
-}
+// function makeBoard() {
+//   for (let y = 0; y < HEIGHT; y++) {
+//     const emptyRow = Array.from({ length: WIDTH }).fill(null);
+//     board.push(emptyRow);
+//   }
+// }
 
 
 // TODO: Check if methods can take parameters, if not remove
@@ -33,6 +33,17 @@ class Game {
     this.height = height;
     this.board = board;
     this.currPlayer = currPlayer;
+  }
+
+  /** makeBoard: fill in global `board`:
+ *    board = array of rows, each row is array of cells  (board[y][x])
+ */
+
+  makeBoard() {
+    for (let y = 0; y < this.height; y++) {
+      const emptyRow = Array.from({ length: this.width }).fill(null);
+      this.board.push(emptyRow);
+    }
   }
 
   /** makeHtmlBoard: make HTML table and row of column tops. */
@@ -46,7 +57,7 @@ class Game {
     for (let x = 0; x < this.width; x++) {
       const headCell = document.createElement("td");
       headCell.setAttribute("id", `top-${x}`);
-      headCell.addEventListener("click", handleClick);
+      headCell.addEventListener("click", this.handleClick);
       top.append(headCell);
     }
     htmlBoard.append(top);
@@ -147,7 +158,7 @@ class Game {
     }
 
     // place piece in board and add to HTML table
-    this.boardboard[y][x] = this.currPlayer;
+    this.board[y][x] = this.currPlayer;
     this.placeInTable(y, x);
 
     // check for win
@@ -315,5 +326,5 @@ class Game {
 
 
 // Commenting out for commit
-// const game = new Game();
-// game.start();
+const game = new Game();
+game.start();

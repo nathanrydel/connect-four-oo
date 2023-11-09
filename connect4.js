@@ -7,24 +7,6 @@
  * board fills (tie)
  */
 
-// const WIDTH = 7;
-// const HEIGHT = 6;
-
-// let currPlayer = 1; // active player: 1 or 2
-// const board = []; // array of rows, each row is array of cells  (board[y][x])
-// (board[5][0] would be the bottom-left spot on the board)
-
-/** makeBoard: fill in global `board`:
- *    board = array of rows, each row is array of cells  (board[y][x])
- */
-
-// function makeBoard() {
-//   for (let y = 0; y < HEIGHT; y++) {
-//     const emptyRow = Array.from({ length: WIDTH }).fill(null);
-//     board.push(emptyRow);
-//   }
-// }
-
 
 // TODO: Check if methods can take parameters, if not remove
 class Game {
@@ -183,8 +165,25 @@ class Game {
   }
 }
 
+new Game();
 
+// const WIDTH = 7;
+// const HEIGHT = 6;
 
+// let currPlayer = 1; // active player: 1 or 2
+// const board = []; // array of rows, each row is array of cells  (board[y][x])
+// (board[5][0] would be the bottom-left spot on the board)
+
+/** makeBoard: fill in global `board`:
+ *    board = array of rows, each row is array of cells  (board[y][x])
+ */
+
+// function makeBoard() {
+//   for (let y = 0; y < HEIGHT; y++) {
+//     const emptyRow = Array.from({ length: WIDTH }).fill(null);
+//     board.push(emptyRow);
+//   }
+// }
 
 // function makeHtmlBoard() {
 //   const htmlBoard = document.getElementById("board");
@@ -323,8 +322,3 @@ class Game {
 // }
 
 // start();
-
-
-// Commenting out for commit
-const game = new Game();
-game.start();

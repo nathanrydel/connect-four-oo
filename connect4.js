@@ -184,7 +184,7 @@ class Player {
 }
 
 
-const startButton = document.getElementById("start-button");
-startButton.addEventListener("click", function () {
+document.getElementById("start-menu").addEventListener("submit", function (event) {
+  event.preventDefault();
   new Game();
 });

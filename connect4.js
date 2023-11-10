@@ -126,7 +126,7 @@ class Game {
         }
       }
     }
-    return undefined;
+    return false;
   }
 
   /** handleClick: handle click of column top to play piece */
@@ -167,6 +167,8 @@ class Game {
     this.makeHtmlBoard();
   }
 }
+
+// TODO: Create a player class
 
 new Game(6, 7);
 

@@ -1,15 +1,24 @@
 <!doctype html>
+
 <head>
   <title>Connect 4</title>
   <link href="connect4.css" rel="stylesheet">
 </head>
+
 <body>
 
-<div id="game">
-  <table id="board"></table>
-</div>
+  <!-- TODO: Add a form with 2 spots for color, and start button -->
+  <form id="start-menu">
+    <input type="text" class="player" placeholder="Player 1 Color" id="1">
+    <input type="text" class="player" placeholder="Player 2 Color" id="2">
+    <button id="start-button">Start Button!</button>
+  </form>
+  <div id="game">
+    <table id="board"></table>
+  </div>
 
-<script src="connect4.js"></script>
+  <script src="connect4.js"></script>
 
 </body>
+
 </html>

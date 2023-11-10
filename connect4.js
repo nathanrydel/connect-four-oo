@@ -7,7 +7,6 @@
  * board fills (tie)
  */
 
-
 class Game {
   // TODO: switch width and height to match testing
   constructor(height = 6, width = 7, board = [], currPlayer = 1) {
@@ -15,6 +14,7 @@ class Game {
     this.height = height;
     this.board = board;
     this.currPlayer = currPlayer;
+    this.gameOver = false
     this.start();
   }
 
@@ -121,11 +121,30 @@ class Game {
 
         // find winner (only checking each win-possibility as needed)
         if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
+          this.gameOver = true;
+          this.functionGameOver();
           return true;
         }
       }
     }
     return false;
+  }
+
+  // const top = document.createElement("tr");
+  // top.setAttribute("id", "column-top");
+
+  // for (let x = 0; x < this.width; x++) {
+  //   const headCell = document.createElement("td");
+  //   headCell.setAttribute("id", `top-${x}`);
+  //   headCell.addEventListener("click", this.handleClick.bind(this));
+  //   top.append(headCell);
+  // }
+
+  functionGameOver() {
+    if (this.functionGameOver){
+      const topRow = document.getElementById("column-top");
+      topRow.innerHTML = ""
+    }
   }
 
   /** handleClick: handle click of column top to play piece */

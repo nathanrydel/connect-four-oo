@@ -8,15 +8,14 @@
  */
 
 
-// TODO: Check if methods can take parameters, if not remove
 class Game {
   // TODO: switch width and height to match testing
-  constructor(width = 7, height = 6, board = [], currPlayer = 1) {
-    // TODO: Add things that happen every time a new game is made
+  constructor(height = 6, width = 7, board = [], currPlayer = 1) {
     this.width = width;
     this.height = height;
     this.board = board;
     this.currPlayer = currPlayer;
+    this.start();
   }
 
   /** makeBoard: fill in global `board`:
@@ -33,6 +32,7 @@ class Game {
   /** makeHtmlBoard: make HTML table and row of column tops. */
   makeHtmlBoard() {
     const htmlBoard = document.getElementById("board");
+    htmlBoard.innerHTML = ""
 
     // Creates individual column blocks in the top row
     const top = document.createElement("tr");
@@ -41,7 +41,7 @@ class Game {
     for (let x = 0; x < this.width; x++) {
       const headCell = document.createElement("td");
       headCell.setAttribute("id", `top-${x}`);
-      headCell.addEventListener("click", this.handleClick);
+      headCell.addEventListener("click", this.handleClick.bind(this));
       top.append(headCell);
     }
     htmlBoard.append(top);
@@ -95,12 +95,11 @@ class Game {
   /** checkForWin: check board cell-by-cell for "does a win start here?" */
 
   checkForWin() {
-
+    debugger
     function _win(cells) {
       // Check four cells to see if they're all color of current player
       //  - cells: list of four (y, x) cells
       //  - returns true if all are legal coordinates & all match currPlayer
-
       return cells.every(
         ([y, x]) =>
           y >= 0 &&
@@ -156,6 +155,7 @@ class Game {
     }
 
     // switch players
+    console.log(this.currPlayer)
     this.currPlayer = this.currPlayer === 1 ? 2 : 1;
   }
 
@@ -168,8 +168,8 @@ class Game {
 }
 
 // TODO: match testing call and call from exercise instructions
-const game = new Game(6, 7);
-game.start();
+new Game(6, 7)
+
 
 // const WIDTH = 7;
 // const HEIGHT = 6;

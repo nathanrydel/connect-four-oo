@@ -75,7 +75,7 @@ class Game {
   }
 
   /** placeInTable: update DOM to place piece into HTML table of board */
-
+  // TODO: update the function to set the correct player color
   placeInTable(y, x) {
     const piece = document.createElement('div');
     piece.classList.add('piece');
@@ -135,6 +135,7 @@ class Game {
 
   handleClick(evt) {
     // if game is over, ignore additional moves
+    // TODO: Single line capable
     if (this.gameOver === true) {
       return;
     }
@@ -145,6 +146,7 @@ class Game {
     console.log("x in handleClick", x);
     // get next spot in column (if none, ignore click)
     const y = this.findSpotForCol(x);
+    // TODO: single line capable
     if (y === null) {
       return;
     }
@@ -154,6 +156,7 @@ class Game {
     this.placeInTable(y, x);
 
     // check for win
+    // TODO: nothing displays on winning condition
     if (this.checkForWin()) {
       return this.endGame(`Player ${this.currPlayer} won!`);
     }
@@ -164,6 +167,8 @@ class Game {
     }
 
     // switch players
+    // TODO: game no longer switches players after passing in individual players
+    // to constructor function
     this.currPlayer = this.currPlayer === 1 ? 2 : 1;
   }
 

@@ -32,7 +32,7 @@ class Game {
   /** makeHtmlBoard: make HTML table and row of column tops. */
   makeHtmlBoard() {
     const htmlBoard = document.getElementById("board");
-    htmlBoard.innerHTML = ""
+    htmlBoard.innerHTML = "";
 
     // Creates individual column blocks in the top row
     const top = document.createElement("tr");
@@ -93,11 +93,11 @@ class Game {
   }
 
   /** checkForWin: check board cell-by-cell for "does a win start here?" */
-//arrow fn (not anonymous)
+  //arrow fn (not anonymous)
 
   checkForWin() {
 
-    const _win = (cells) =>  {
+    const _win = (cells) => {
       // Check four cells to see if they're all color of current player
       //  - cells: list of four (y, x) cells
       //  - returns true if all are legal coordinates & all match currPlayer
@@ -109,7 +109,7 @@ class Game {
           x < this.width &&
           this.board[y][x] === this.currPlayer
       );
-    }
+    };
 
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
@@ -134,7 +134,8 @@ class Game {
   handleClick(evt) {
     // get x from ID of clicked cell
     const x = Number(evt.target.id.slice("top-".length));
-
+    console.log("evt.target.id in handleClick", evt.target.id);
+    console.log("x in handleClick", x);
     // get next spot in column (if none, ignore click)
     const y = this.findSpotForCol(x);
     if (y === null) {
@@ -156,7 +157,6 @@ class Game {
     }
 
     // switch players
-    console.log(this.currPlayer)
     this.currPlayer = this.currPlayer === 1 ? 2 : 1;
   }
 
@@ -168,8 +168,7 @@ class Game {
   }
 }
 
-// TODO: match testing call and call from exercise instructions
-new Game(6, 7)
+new Game(6, 7);
 
 
 // const WIDTH = 7;

@@ -8,11 +8,13 @@
  */
 
 class Game {
-  constructor(height = 6, width = 7, board = [], currPlayer = 1) {
+  constructor(p1, p2, height = 6, width = 7, board = []) {
+    // keep track of both players
+    this.players = [p1, p2];
     this.width = width;
     this.height = height;
     this.board = board;
-    this.currPlayer = currPlayer;
+    this.currPlayer = p1;
     this.gameOver = false;
     this.start();
   }
@@ -185,6 +187,15 @@ class Player {
 
 
 document.getElementById("start-menu").addEventListener("submit", function (event) {
+  // prevent the default form behavior
   event.preventDefault();
-  new Game();
+
+  // get the values from the input fields
+  const p1InputColor = document.getElementById('p1').value;
+  const p2InputColor = document.getElementById('p2').value;
+
+  // create new Player objects with the p*InputColor
+  const p1 = new Player(p1InputColor);
+  const p2 = new Player(p2InputColor);
+  new Game(p1, p2);
 });

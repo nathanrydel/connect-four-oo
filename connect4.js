@@ -93,10 +93,11 @@ class Game {
   }
 
   /** checkForWin: check board cell-by-cell for "does a win start here?" */
+//arrow fn (not anonymous)
 
   checkForWin() {
-    debugger
-    function _win(cells) {
+
+    const _win = (cells) =>  {
       // Check four cells to see if they're all color of current player
       //  - cells: list of four (y, x) cells
       //  - returns true if all are legal coordinates & all match currPlayer
@@ -125,7 +126,7 @@ class Game {
         }
       }
     }
-    return false;
+    return undefined;
   }
 
   /** handleClick: handle click of column top to play piece */

@@ -185,8 +185,15 @@ class Game {
   }
 }
 
-// TODO: Create a player class
+/**
+ * Create a player class to store the color from the start menu form
+ */
 
+class Player {
+  constructor(color) {
+    this.color = color;
+  }
+}
 
 new Game(6, 7);
 

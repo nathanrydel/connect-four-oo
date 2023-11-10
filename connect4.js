@@ -93,7 +93,6 @@ class Game {
   }
 
   /** checkForWin: check board cell-by-cell for "does a win start here?" */
-  //arrow fn (not anonymous)
 
   checkForWin() {
 

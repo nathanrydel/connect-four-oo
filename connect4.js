@@ -8,13 +8,12 @@
  */
 
 class Game {
-  // TODO: switch width and height to match testing
   constructor(height = 6, width = 7, board = [], currPlayer = 1) {
     this.width = width;
     this.height = height;
     this.board = board;
     this.currPlayer = currPlayer;
-    this.gameOver = false
+    this.gameOver = false;
     this.start();
   }
 
@@ -141,9 +140,9 @@ class Game {
   // }
 
   functionGameOver() {
-    if (this.functionGameOver){
+    if (this.functionGameOver) {
       const topRow = document.getElementById("column-top");
-      topRow.innerHTML = ""
+      topRow.innerHTML = "";
     }
   }
 
@@ -188,8 +187,16 @@ class Game {
 
 // TODO: Create a player class
 
+
 new Game(6, 7);
 
+const startButton = document.getElementById("start-button");
+console.log("Start Button", startButton);
+startButton.addEventListener("click", function () {
+  new Game();
+});
+
+// You disappeared from Zoom, is that me or you?
 
 // const WIDTH = 7;
 // const HEIGHT = 6;
